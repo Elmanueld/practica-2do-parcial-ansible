@@ -1,0 +1,51 @@
+
+PLAY [Administrar los servidores Ubuntu en Docker] *****************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [server1]
+ok: [server2]
+
+TASK [Mostrar el nombre del host] **********************************************
+ok: [server1] => {
+    "msg": "Servidor: server1"
+}
+ok: [server2] => {
+    "msg": "Servidor: server2"
+}
+
+TASK [Mostrar el sistema operativo] ********************************************
+ok: [server1] => {
+    "msg": "Sistema operativo: Ubuntu 24.04"
+}
+ok: [server2] => {
+    "msg": "Sistema operativo: Ubuntu 24.04"
+}
+
+TASK [Crear el directorio de demostracion] *************************************
+ok: [server1]
+ok: [server2]
+
+TASK [Crear info.txt con informacion del servidor] *****************************
+changed: [server2]
+changed: [server1]
+
+TASK [Crear subdirectorios de trabajo] *****************************************
+ok: [server1] => (item=logs)
+ok: [server2] => (item=logs)
+ok: [server1] => (item=backup)
+ok: [server2] => (item=backup)
+ok: [server1] => (item=config)
+ok: [server2] => (item=config)
+
+TASK [Informar cuando el sistema operativo es Ubuntu] **************************
+ok: [server1] => {
+    "msg": "server1 ejecuta Ubuntu."
+}
+ok: [server2] => {
+    "msg": "server2 ejecuta Ubuntu."
+}
+
+PLAY RECAP *********************************************************************
+server1                    : ok=7    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+server2                    : ok=7    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
